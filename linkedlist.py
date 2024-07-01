@@ -18,6 +18,31 @@ class LinkedList:
       print(temp.value)
       temp = temp.next
 
-linkedlist1 = LinkedList(1)
-
-linkedlist1.print_val()
+  def append(self, value):
+    new_node = Node(value)
+        
+    if self.head is None:
+        self.head = new_node
+        self.tail = new_node
+    else:
+        self.tail.next = new_node
+        self.tail = new_node
+        
+    self.length += 1
+        
+  def print_val(self):
+    temp = self.head
+    while temp is not None:
+        print(temp.value)
+        temp = temp.next
+            
+  def get_middle(self):
+    values = []
+    temp = self.head
+        
+    while temp is not None:
+        values.append(temp.value)
+        temp = temp.next
+            
+    middle = len(values) // 2
+    return values[middle]
